@@ -1,6 +1,12 @@
 import pandas as pd
 import numpy as np
 from scipy.stats import ks_2samp, chisquare
+from sklearn.neighbors import NearestNeighbors
+from sklearn.preprocessing import StandardScaler
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+from sklearn.preprocessing import LabelEncoder
 
 
 def score_fidelity(real_df: pd.DataFrame, synthetic_df: pd.DataFrame) -> dict:
@@ -34,9 +40,6 @@ def score_fidelity(real_df: pd.DataFrame, synthetic_df: pd.DataFrame) -> dict:
         "per_column_scores": per_column_scores
     }
 
-from sklearn.neighbors import NearestNeighbors
-from sklearn.preprocessing import StandardScaler
-
 
 def score_diversity(synthetic_df: pd.DataFrame) -> dict:
     numeric_df = synthetic_df.select_dtypes(include=[np.number]).dropna()
@@ -60,11 +63,6 @@ def score_diversity(synthetic_df: pd.DataFrame) -> dict:
         "diversity_score": diversity_score,
         "duplicate_ratio": duplicate_ratio
     }
-
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score
-from sklearn.preprocessing import LabelEncoder
 
 
 def score_ml_utility(real_df: pd.DataFrame, synthetic_df: pd.DataFrame, target_col: str) -> dict:
@@ -101,9 +99,14 @@ def score_ml_utility(real_df: pd.DataFrame, synthetic_df: pd.DataFrame, target_c
         "synthetic_accuracy": round(synthetic_accuracy, 3),
         "gap": gap
     }
+
+
 if __name__ == "__main__":
     real = pd.read_csv("../data/sample.csv")
-    fake_synth = pd.read_csv("../data/fake_synthetic_for_testing.csv")
-    print("Fidelity:", score_fidelity(real, fake_synth))
-    print("Diversity:", score_diversity(fake_synth))
-    print("ML Utility:", score_ml_utility(real, fake_synth, target_col="label"))
+
+    # This now points to Member 1's REAL generated data instead of the fake noisy version
+    real_synthetic = pd.read_csv("../data/real_synthetic_output.csv")
+
+    print("Fidelity:", score_fidelity(real, real_synthetic))
+    print("Diversity:", score_diversity(real_synthetic))
+    print("ML Utility:", score_ml_utility(real, real_synthetic, target_col="label"))
