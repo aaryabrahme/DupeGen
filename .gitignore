@@ -1,0 +1,31 @@
+# Virtual environment
+venv/
+env/
+.venv/
+
+# Python bytecode / cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editor/IDE
+.vscode/
+.idea/
+
+# pytest cache
+.pytest_cache/
+
+# Large raw dataset — download from Kaggle instead of committing
+data/creditcard.csv
+data/demo_dataset_clean.csv
+
+# Environment variables / secrets
+.env
