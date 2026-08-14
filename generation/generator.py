@@ -29,7 +29,7 @@ def generate_synthetic(real_df: pd.DataFrame, n_rows: int, epochs: int = 100) ->
 # Quick manual test — only runs when you execute this file directly
 if __name__ == "__main__":
     real_data = pd.read_csv("../data/sample.csv")
-    synthetic_data = generate_synthetic(real_data, n_rows=200, epochs=50)
+    synthetic_data = generate_synthetic(real_data, n_rows=200, epochs=100)
     print(synthetic_data.head())
     synthetic_data.to_csv("../data/synthetic_test_output.csv", index=False)
     print("Saved synthetic_test_output.csv — open it and compare to sample.csv")
