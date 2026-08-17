@@ -1,0 +1,285 @@
+/* =========================================================
+   DUPEGEN - GLOBAL STYLES
+   ========================================================= */
+
+:root {
+    --bg: #080b14;
+    --sidebar: #0d1220;
+    --card: #111827;
+    --card-hover: #151e30;
+    --border: #202a3d;
+
+    --text: #f8fafc;
+    --muted: #94a3b8;
+
+    --primary: #8b5cf6;
+    --primary-dark: #6d28d9;
+    --cyan: #22d3ee;
+
+    --success: #22c55e;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+}
+
+/* ---------- Main application ---------- */
+
+.stApp {
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* ---------- Hide Streamlit default elements ---------- */
+
+#MainMenu {
+    visibility: hidden;
+}
+
+footer {
+    visibility: hidden;
+}
+
+header {
+    background: transparent !important;
+}
+
+/* ---------- Main content ---------- */
+
+.block-container {
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+    max-width: 1500px;
+}
+
+/* ---------- Sidebar ---------- */
+
+[data-testid="stSidebar"] {
+    background: var(--sidebar);
+    border-right: 1px solid var(--border);
+}
+
+[data-testid="stSidebar"] > div:first-child {
+    padding-top: 1.5rem;
+}
+
+/* ---------- Text ---------- */
+
+h1, h2, h3, h4 {
+    color: var(--text) !important;
+}
+
+p {
+    color: var(--muted);
+}
+
+/* ---------- Buttons ---------- */
+
+.stButton > button {
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--text);
+    padding: 0.65rem 1rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.stButton > button:hover {
+    border-color: var(--primary);
+    background: var(--card-hover);
+    color: white;
+}
+
+/* ---------- Primary button ---------- */
+
+.primary-button {
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary-dark)
+    );
+    border: none;
+    border-radius: 12px;
+    padding: 14px 22px;
+    color: white;
+    font-weight: 700;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(124, 58, 237, 0.25);
+}
+
+/* ---------- Dashboard cards ---------- */
+
+.metric-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 22px;
+    min-height: 145px;
+    transition: all 0.2s ease;
+}
+
+.metric-card:hover {
+    background: var(--card-hover);
+    border-color: #34415b;
+    transform: translateY(-2px);
+}
+
+.metric-label {
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+}
+
+.metric-value {
+    color: var(--text);
+    font-size: 2rem;
+    font-weight: 750;
+    line-height: 1;
+}
+
+.metric-description {
+    color: var(--muted);
+    font-size: 0.78rem;
+    margin-top: 12px;
+}
+
+/* ---------- Hero section ---------- */
+
+.hero {
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(124, 58, 237, 0.18),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #111827,
+            #0d1220
+        );
+
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 36px;
+    margin-bottom: 28px;
+}
+
+.hero-title {
+    font-size: 2.6rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.hero-subtitle {
+    color: var(--muted);
+    font-size: 1.05rem;
+    max-width: 720px;
+}
+
+/* ---------- Status badge ---------- */
+
+.status-online {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    background: rgba(34, 197, 94, 0.08);
+    border: 1px solid rgba(34, 197, 94, 0.25);
+
+    color: #86efac;
+
+    padding: 7px 12px;
+    border-radius: 999px;
+
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+    background: var(--success);
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* ---------- Section titles ---------- */
+
+.section-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.section-description {
+    color: var(--muted);
+    margin-bottom: 20px;
+}
+
+/* ---------- Workspace card ---------- */
+
+.workspace-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px;
+    margin-bottom: 20px;
+}
+
+.workspace-name {
+    font-weight: 700;
+    color: white;
+}
+
+.workspace-label {
+    color: var(--muted);
+    font-size: 0.75rem;
+}
+
+/* ---------- Info cards ---------- */
+
+.info-card {
+    background: #0e1524;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+}
+
+.info-title {
+    color: white;
+    font-weight: 650;
+    margin-bottom: 8px;
+}
+
+.info-text {
+    color: var(--muted);
+    font-size: 0.88rem;
+}
+
+/* ---------- Divider ---------- */
+
+.divider {
+    height: 1px;
+    background: var(--border);
+    margin: 28px 0;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero {
+        padding: 25px;
+    }
+
+    .metric-card {
+        margin-bottom: 12px;
+    }
+}

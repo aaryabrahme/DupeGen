@@ -23,7 +23,7 @@ Thumbs.db
 # pytest cache
 .pytest_cache/
 
-# Large raw dataset â€” download from Kaggle instead of committing
+# Large raw dataset — download from Kaggle instead of committing
 data/creditcard.csv
 data/demo_dataset_clean.csv
 
